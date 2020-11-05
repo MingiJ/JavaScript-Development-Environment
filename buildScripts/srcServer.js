@@ -17,6 +17,12 @@ app.use(require('webpack-dev-middleware')(compiler,{
 app.get('/', function(req,res){
   res.sendFile(path.join(__dirname,'../src/index.html'))
 });
+app.get('/users',function(req,res){
+  //Hard coding for simplicity. Pretend this is a real database
+  res.json([
+    {"id":1, "firstName": "Bob", "lastName": "Smith", "email":"bob@gmail.com"}
+  ])
+})
 
 app.listen(port, function(err){
   if(err){
